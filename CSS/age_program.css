@@ -1,0 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Lobster&display=swap");
+
+* {
+  font-family: "Do Hyeon", sans-serif;
+}
+
+.answer {
+  color: rgb(97, 97, 99);
+  font-size: 30px;
+  text-align: center;
+}

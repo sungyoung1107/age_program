@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=
+  , initial-scale=1.0"
+    />
+    <title>나이 계산 프로그램</title>
+    <link rel="stylesheet" href="CSS/age_program.css" />
+  </head>
+  <body>
+    <script>
+      // 나이 받는 창과 나이 반환 함수 지정
+      function ageCal() {
+        let userYear = prompt("태어난 연도를 입력하세요. (예시: 2008...)"); // 사용자에게 나이를 입력 받음
+        var currentYear = 2023; //현재 연도
+        let age; //계산된 나이를 넣는 변수
+        let userYearNum = parseInt(userYear); // 문자열을 숫자로 변환
+
+        if (userYear == null) {
+          alert("취소하셨습니다.");
+        } else {
+          // 음수값이나, 입력한 문자열이 숫자가 아닐 경우
+          if (userYearNum < 0 || isNaN(userYear) == true) {
+            alert(
+              "잘못 입력하셨습니다. 4자리 연도로 입력하여 주세요. (예시: 2008...)"
+            );
+            ageCal(); // 함수 재호출
+          } else if (
+            (userYearNum < 1901 || userYearNum > 2100) &&
+            userYearNum <= currentYear
+          ) {
+            if (
+              !confirm(
+                "생년월일이 20세기 또는 21세기를 벗어났습니다. 다시 입력하시겠습니까?"
+              )
+            ) {
+              // 아니오 선택시 나이 계산 진행
+              age = currentYear - userYearNum + 1;
+              document.write(
+                "<span class='answer'>" +
+                  userYear +
+                  "년에 태어난 사람의 나이는 현재<sub>(2023년)</sub> " +
+                  '"' +
+                  age +
+                  "세" +
+                  '"' +
+                  "입니다.</span>"
+              );
+            } else {
+              //예 선택시 함수 재호출
+              ageCal();
+            }
+          } else if (userYearNum > currentYear) {
+            alert("미래연도입니다. 다시 입력하세요.");
+            ageCal();
+          } else {
+            // 나이 계산 진행
+            age = currentYear - userYearNum + 1;
+            document.write(
+              "<span class='answer'>" +
+                userYear +
+                "년에 태어난 사람의 나이는 현재<sub>(2023년)</sub> " +
+                '"' +
+                age +
+                "세" +
+                '"' +
+                "입니다.</span>"
+            );
+          }
+        }
+      }
+      // 함수 호출
+      ageCal();
+    </script>
+  </body>
+</html>
